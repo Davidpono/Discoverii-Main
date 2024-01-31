@@ -10,4 +10,4 @@ pymongo
 djangorestframework
 requests
 django
-corsheaders
+django-cors-headers
