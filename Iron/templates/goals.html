@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Four Corners Layout with Text</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100vw;
+            height: 100vh;
+        }
+        .corner {
+            width: 50%;
+            height: 50%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+        }
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        .corner:hover .image {
+            opacity: 1;
+        }
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .corner:hover .text {
+            opacity: 1;
+        }   .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(21, 19, 19);
+            font-size: 25px;
+            
+            text-align: center;
+            opacity: 1; /* Make the text visible by default */
+        }
+    </style>
+</head>
+<body>
+    <div class="corner" onclick="window.location.href='{% url 'Iron:bbing_view' %}'">
+        <img class="image" src="{% static 'res/img/austrian-born-bodybuilder-arnold-schwarzenegger-points-one-news-photo-1584730817.jpg' %}" alt="Image 1">
+        <div class="text">Bodyboulding<br></div>
+    </div>
+    <div class="corner" >
+        <img class="image" src="{% static 'res/img/Oleksil-Novikov-UKRbreaks-world-record-in-Deadlift-competition-1_Cr-Hector-Vivas.jpg' %}" alt="Image 2">
+        <div class="text">Strenght Training<br></div>
+    </div>
+    <div class="corner" >
+        <img class="image" src="{% static 'res/img/23IVKKYQZ5BHDN3GCEM2HEFHZY.jpg' %}" alt="Image 3">
+        <div class="text">Weight Loss<br></div>
+    </div>
+    <div class="corner" >
+        <img class="image" src="{% static 'res/img/Screenshot 2021-11-11 130758.jpg' %}" alt="Image 4">
+        <div class="text">General Fitness<br></div>
+    </div>
+</body>
+</html>

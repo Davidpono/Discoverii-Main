@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'res/img/fevicon.png' %}" type="">
+
+  <link rel="stylesheet"href="{% static 'res/css/formforweigh.css' %}">
+  
+  <title> Iron- By David Ponce </title>
+
+
+  <!-- bootstrap core css -->
+  
+  <link href="{% static 'res/css/bootstrap.css' %}" rel="stylesheet">
+
+
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'res/css/font-awesome.min.css' %}" rel="stylesheet" />
+  
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'res/css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'res/css/responsive2.css' %}" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    .workoutform {
+    width: 1000px;
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.upperdiv {
+    display: flex; 
+    flex-direction: row; 
+    margin-bottom: 20px;
+}
+.addDuplicate{
+    display: flex; 
+    flex-direction: row; 
+    height: 100%; 
+    width: 100%;
+
+}
+.workoutdetails {
+    width: 50%;
+    display: grid;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+ 
+.commentsplusworkoutdets{
+    display: flex; 
+    flex-direction: row; 
+    margin-top: 10px; 
+    margin-bottom: 20px;
+}
+.genericInput{
+    
+
+    border 1px solid black; 
+    height: 100%; 
+    width: 100%; 
+    border-radius: 10px;
+}
+.genericInputDiv{
+    height: 150%;
+}
+.workoutnamegenericInputDiv{
+    height: 150%;
+}
+.daynamegenericInput{
+    
+
+    border 1px solid black; 
+    height: 100%; 
+    width: 100%; 
+    border-radius: 10px;
+}
+.daydiv {
+    border: 0px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.commentDiv{
+    width: 50%;
+}
+.searchgoals {
+    display: flex; 
+    align-items: center; 
+    font-weight: bold; 
+    color: rgb(255, 255, 255);
+}
+.findtext {
+    color: white;
+    font-size: 20px; /* Use font-size instead of text-size-adjust */
+    font-weight: bold;
+    /*text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;*/
+}
+
+.findtext:hover {
+    transform: scale(2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.hero_section {
+    ba
+}
+
+@media (max-width: 431px) {
+    .workoutform {
+        width: 100%;
+        border-radius: 0; /* Reset border-radius for smaller screens */
+        border: 1px solid black;
+        padding: 10px;
+    }
+    .upperdiv {
+    display: flex; 
+    flex-direction: column; 
+    margin-bottom: 20px;
+}
+.addDuplicate{
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+.workoutdetails {
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.commentsplusworkoutdets{
+    display: flex; 
+    flex-direction: column; 
+    width: 100%;
+    height: 100%;
+    margin-top: 10px; 
+    margin-bottom: 20px;
+}
+
+.genericInput{
+    
+
+  
+    height: 100%; 
+    width: 100%; 
+    border-radius: 10px;
+}
+.genericInputDiv{
+    height: 150%;
+}
+.workoutnamegenericInputDiv{
+    height: 40%;
+    margin-top: 40px;
+}
+.daynamegenericInput{
+    
+
+    border 1px solid black; 
+    height: 100%; 
+    width: 100%; 
+    border-radius: 10px;
+}
+.daydiv {
+    border: 0px solid black;
+    height: 100%;
+   
+    margin-bottom: 10px;
+}
+.commentDiv{
+    margin-top: 30px;
+    width: 100%;
+    height: 100%;
+}
+.searchgoals {
+    display: grid;
+    grid-template-columns: repeat(1, 3); /* Three columns per row */
+    grid-gap: 10px; /* Adjust the gap between items */
+}
+
+}
+  </style>
+  <div class="header_bottom">
+    <div class="container-fluid" style="width: 80%;">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="templates/bodyboulding.html">
+          <span>
+            Iron
+          </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""> </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" ">
+          <ul class="navbar-nav  ">
+
+            <li class="nav-item">
+              <a class="nav-link" onclick="window.location.href='{% url 'Iron:login' %}'"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="window.location.href='{% url 'Iron:register' %}'"> <i class="fa fa-user" aria-hidden="true"></i> Register</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Workouts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="window.location.href='{% url 'Iron:userprofile' %}'"> <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Meal Plans</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Playlist</a>
+              </li>
+            <form class="form-inline">
+              <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</head>
+
+<body>
+
+  
+
+  </div>
+<section class="hero_section" > hero
+
+</section>
+
+
+  <section class="about_section layout_padding-bottom" style="background-color: rgb(187, 61, 61); ">
+    
+    
+  <h1 class="section-header"></h1>
+  <div class="accordion"style="items-align: center;">
+    <div class="accordion-header"  style="display: flex; justify-content: center; width: 70%;"><span style="font-weight: bold; font-size: 25px; width: 70%;">Find a program</span></div>
+    <div class="accordion-content">
+  <div class="contact-wrapper" style="gap: 80px;">
+ <div>
+    <span class="findtext" >
+        Forget cliches and "bahamas bods"! Let's find a pro workout plan just for you. Tell me: are you a seasoned trainer or just starting out? Arms, back, glutes, or something else? Are you 
+        chasing that sculpted physique, crushing your next triathlon, or just feeling your best? Any limitations or preferences? Give me these details, and FIND a personalized program 
+        that fuels your fitness journey – goodbye guesswork, hello results!</span>
+ </div>
+  <!-- Left contact page --> 
+    <div style="margin-right: -12px;">
+    <form  class="form-horizontal" role="form" name="form" id="form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" style="border: 1px solid rgb(255, 255, 255); border-radius: 10px; padding: 10px; width: auto;">
+        {% csrf_token %}
+        <div>
+        <input type="hidden" name="zf_referrer_name" value="">
+        <input type="hidden" name="zf_redirect_url" value="">
+        <input type="hidden" name="zc_gad" value="">
+      <div class="form-group" >
+        <ul class="input-list">
+
+            
+           
+                <label style="font-weight: bold; color: rgb(255, 255, 255);">How many days do you want to train? </label>
+                <div style="display: flex; align-items: center; font-weight: bold; color: rgb(255, 255, 255);">
+                    <input type="radio" id="Radio_4" name="amount" value="3" style="display: none;">
+                    <label for="Radio_4" style="cursor: pointer; margin-right: 10px;">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_4" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 100%; display: none;"></div>
+                        </div>
+                        3
+                    </label>
+                    
+                    <input type="radio" id="Radio_5" name="amount" value="4" style="display: none;">
+                    <label for="Radio_5" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_5" style="width: 15px; height: 15px; background-color: rgb(236, 228, 228); border-radius: 50%; display: none;"></div>
+                        </div>
+                        4
+                    </label>
+                    <input type="radio" id="Radio_6" name="amount" value="5" style="display: none;">
+                    <label for="Radio_6" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_6" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 50%; display: none;"></div>
+                        </div>
+                        5
+                    </label>
+                    <input type="radio" id="Radio_7" name="amount" value="6" style="display: none;">
+                    <label for="Radio_7" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_7" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 50%; display: none;"></div>
+                        </div>
+                        6
+                    </label>
+                </div>
+           
+            
+            <script>
+                // JavaScript to handle the indicator display
+                document.getElementById("Radio_4").addEventListener("change", function() {
+                    document.getElementById("Indicator_4").style.display = "block";
+                    document.getElementById("Indicator_5").style.display = "none";
+                    document.getElementById("Indicator_6").style.display = "none";
+                    document.getElementById("Indicator_7").style.display = "none";
+                });
+            
+                document.getElementById("Radio_5").addEventListener("change", function() {
+                    document.getElementById("Indicator_4").style.display = "none";
+                    document.getElementById("Indicator_5").style.display = "block";
+                    document.getElementById("Indicator_6").style.display = "none";
+                    document.getElementById("Indicator_7").style.display = "none";
+                });
+            
+                document.getElementById("Radio_6").addEventListener("change", function() {
+                    document.getElementById("Indicator_4").style.display = "none";
+                    document.getElementById("Indicator_5").style.display = "none";
+                    document.getElementById("Indicator_6").style.display = "block";
+                    document.getElementById("Indicator_7").style.display = "none";
+                });
+            
+                document.getElementById("Radio_7").addEventListener("change", function() {
+                    document.getElementById("Indicator_4").style.display = "none";
+                    document.getElementById("Indicator_5").style.display = "none";
+                    document.getElementById("Indicator_6").style.display = "none";
+                    document.getElementById("Indicator_7").style.display = "block";
+                });
+            </script>
+    </div>
+    
+    <div class="form-group">
+        <ul class="input-list">
+
+            
+                <label style="font-weight: bold; color: rgb(255, 255, 255);">What would you consider yourself as? </label>
+                <div style="display: flex; align-items: center; font-weight: bold; color: rgb(255, 255, 255);">
+                    <input type="radio" id="Radio_8" name="level" value="Beginner" style="display: none;">
+                    <label for="Radio_8" style="cursor: pointer; margin-right: 10px;">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_8" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 100%; display: none;"></div>
+                        </div>
+                        Beginner
+                    </label>
+                    
+                    <input type="radio" id="Radio_9" name="level" value="Intermidiate" style="display: none;">
+                    <label for="Radio_9" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_9" style="width: 15px; height: 15px; background-color: rgb(236, 228, 228); border-radius: 50%; display: none;"></div>
+                        </div>
+                        Intermidiate
+                    </label>
+                    <input type="radio" id="Radio_10" name="level" value="Advance" style="display: none;">
+                    <label for="Radio_10" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_10" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 50%; display: none;"></div>
+                        </div>
+                        Advance
+                    </label>
+                    
+                </div>
+            
+            
+            <script>
+                // JavaScript to handle the indicator display
+                document.getElementById("Radio_8").addEventListener("change", function() {
+                    document.getElementById("Indicator_8").style.display = "block";
+                    document.getElementById("Indicator_9").style.display = "none";
+                    document.getElementById("Indicator_10").style.display = "none";
+               
+                });
+            
+                document.getElementById("Radio_9").addEventListener("change", function() {
+                    document.getElementById("Indicator_8").style.display = "none";
+                    document.getElementById("Indicator_9").style.display = "block";
+                    document.getElementById("Indicator_10").style.display = "none";
+                  
+                });
+            
+                document.getElementById("Radio_10").addEventListener("change", function() {
+                    document.getElementById("Indicator_8").style.display = "none";
+                    document.getElementById("Indicator_9").style.display = "none";
+                    document.getElementById("Indicator_10").style.display = "block";
+              
+                });
+            
+
+            </script>
+    </div>
+    <div class="form-group">
+        <ul class="input-list">
+
+            
+            
+                <label style="font-weight: bold; color: rgb(255, 255, 255);">Particular body part you would like to focus on? </label>
+                <div style="display: flex; align-items: center; font-weight: bold; color: rgb(255, 255, 255);">
+                    <input type="radio" id="Radio_11" name="concentration" value="Legs" style="display: none;">
+                    <label for="Radio_11" style="cursor: pointer; margin-right: 10px;">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_11" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 100%; display: none;"></div>
+                        </div>
+                        Legs
+                    </label>
+                    
+                    <input type="radio" id="Radio_12" name="concentration" value="Chest" style="display: none;">
+                    <label for="Radio_12" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_12" style="width: 15px; height: 15px; background-color: rgb(236, 228, 228); border-radius: 50%; display: none;"></div>
+                        </div>
+                        Chest
+                    </label>
+                    <input type="radio" id="Radio_13" name="concentration" value="Shldrs" style="display: none;">
+                    <label for="Radio_13" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_13" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 50%; display: none;"></div>
+                        </div>
+                        Shldrs
+                    </label>
+                    <input type="radio" id="Radio_14" name="concentration" value="Back" style="display: none;">
+                    <label for="Radio_14" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_14" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 50%; display: none;"></div>
+                        </div>
+                        Back
+                    </label>
+                    <input type="radio" id="Radio_15" name="concentration" value="Arms" style="display: none;">
+                    <label for="Radio_15" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_15" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 50%; display: none;"></div>
+                        </div>
+                        Arms
+                    </label>
+                    <input type="radio" id="Radio_16" name="concentration" value="Equal" style="display: none;">
+                    <label for="Radio_16" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                        <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                            <div id="Indicator_16" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 50%; display: none;"></div>
+                        </div>
+                        Equal
+                    </label>
+                </div>
+        
+            
+            <script>
+                // JavaScript to handle the indicator display
+                document.getElementById("Radio_11").addEventListener("change", function() {
+                    document.getElementById("Indicator_11").style.display = "block";
+                    document.getElementById("Indicator_12").style.display = "none";
+                    document.getElementById("Indicator_13").style.display = "none";
+                    document.getElementById("Indicator_14").style.display = "none";
+                    document.getElementById("Indicator_15").style.display = "none";
+                    document.getElementById("Indicator_16").style.display = "none";
+                });
+            
+                document.getElementById("Radio_12").addEventListener("change", function() {
+                    document.getElementById("Indicator_11").style.display = "none";
+                    document.getElementById("Indicator_12").style.display = "block";
+                    document.getElementById("Indicator_13").style.display = "none";
+                    document.getElementById("Indicator_14").style.display = "none";
+                    document.getElementById("Indicator_15").style.display = "none";
+                    document.getElementById("Indicator_16").style.display = "none";
+                  
+                });
+            
+                document.getElementById("Radio_13").addEventListener("change", function() {
+                    document.getElementById("Indicator_11").style.display = "none";
+                    document.getElementById("Indicator_12").style.display = "none";
+                    document.getElementById("Indicator_13").style.display = "block";
+                    document.getElementById("Indicator_14").style.display = "none";
+                    document.getElementById("Indicator_15").style.display = "none";
+                    document.getElementById("Indicator_16").style.display = "none";
+              
+                });
+            
+                document.getElementById("Radio_14").addEventListener("change", function() {
+                    document.getElementById("Indicator_11").style.display = "none";
+                    document.getElementById("Indicator_12").style.display = "none";
+                    document.getElementById("Indicator_13").style.display = "none";
+                    document.getElementById("Indicator_14").style.display = "block";
+                    document.getElementById("Indicator_15").style.display = "none";
+                    document.getElementById("Indicator_16").style.display = "none";
+                });
+                document.getElementById("Radio_15").addEventListener("change", function() {
+                    document.getElementById("Indicator_11").style.display = "none";
+                    document.getElementById("Indicator_12").style.display = "none";
+                    document.getElementById("Indicator_13").style.display = "none";
+                    document.getElementById("Indicator_14").style.display = "none";
+                    document.getElementById("Indicator_15").style.display = "block";
+                    document.getElementById("Indicator_16").style.display = "none";
+                });
+                document.getElementById("Radio_16").addEventListener("change", function() {
+                    document.getElementById("Indicator_11").style.display = "none";
+                    document.getElementById("Indicator_12").style.display = "none";
+                    document.getElementById("Indicator_13").style.display = "none";
+                    document.getElementById("Indicator_14").style.display = "none";
+                    document.getElementById("Indicator_15").style.display = "none";
+                    document.getElementById("Indicator_16").style.display = "block";
+                });
+            </script>
+    </div>
+   
+     
+    </ul>
+      
+    <script>
+        const genderSelect2 = document.getElementById("Radio_2"); // Select the 'female' radio button
+    
+        genderSelect2.addEventListener("change", function() {
+            if (this.checked && this.value === "female") { // Check the value of the selected radio button
+                hipField.style.display = "block"; // Display the 'Hip' field for females
+            } else {
+                hipField.style.display = "none"; // Hide the 'Hip' field for males or when nothing is selected
+            }
+        });
+    </script>
+
+<div class="form-group">
+    <div class="searchgoals">
+
+    
+  <ul class="input-list">
+
+      
+     
+          <label style="font-weight: bold; color: rgb(255, 255, 255);">What are your Goals? </label>
+          <div className="searchgoals">
+              <input type="radio" id="Radio_17" name="goal" value="Bodybuilding" style="display: none;">
+              <label for="Radio_17" style="cursor: pointer; margin-right: 10px;">
+                  <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                      <div id="Indicator_17" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 100%; display: none;"></div>
+                  </div>
+                  Bodybuilding
+              </label>
+              
+              <input type="radio" id="Radio_18" name="goal" value="Fitness" style="display: none;">
+              <label for="Radio_18" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                  <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                      <div id="Indicator_18" style="width: 15px; height: 15px; background-color: rgb(236, 228, 228); border-radius: 50%; display: none;"></div>
+                  </div>
+                  Fitness
+              </label>
+              <input type="radio" id="Radio_19" name="goal" value="Weightloss" style="display: none;">
+              <label for="Radio_19" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                  <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                      <div id="Indicator_19" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 50%; display: none;"></div>
+                  </div>
+                  Weightloss 
+              </label>
+              <input type="radio" id="Radio_20" name="goal" value="General" style="display: none;">
+              <label for="Radio_20" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                  <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                      <div id="Indicator_20" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 50%; display: none;"></div>
+                  </div>
+                  General
+              </label>
+              <input type="radio" id="Radio_21" name="goal" value="Strength" style="display: none;">
+              <label for="Radio_21" style="cursor: pointer; margin-right: 10px; font-weight: bold; color: rgb(255, 255, 255);">
+                <div style="width: 20px; height: 20px; border: 2px solid rgb(255, 255, 255); border-radius: 50%; display: inline-block;">
+                    <div id="Indicator_21" style="width: 15px; height: 15px; background-color: rgb(255, 255, 255); border-radius: 50%; display: none;"></div>
+                </div>
+                Strength
+            </label>
+          </div>
+ 
+      
+      <script>
+          // JavaScript to handle the indicator display
+          document.getElementById("Radio_17").addEventListener("change", function() {
+              document.getElementById("Indicator_17").style.display = "block";
+              document.getElementById("Indicator_18").style.display = "none";
+              document.getElementById("Indicator_19").style.display = "none";
+              document.getElementById("Indicator_20").style.display = "none";
+              document.getElementById("Indicator_21").style.display = "none";
+         
+          });
+      
+          document.getElementById("Radio_18").addEventListener("change", function() {
+              document.getElementById("Indicator_17").style.display = "none";
+              document.getElementById("Indicator_18").style.display = "block";
+              document.getElementById("Indicator_19").style.display = "none";
+              document.getElementById("Indicator_20").style.display = "none";
+              document.getElementById("Indicator_21").style.display = "none";
+            
+          });
+      
+          document.getElementById("Radio_19").addEventListener("change", function() {
+              document.getElementById("Indicator_17").style.display = "none";
+              document.getElementById("Indicator_18").style.display = "none";
+              document.getElementById("Indicator_19").style.display = "block";
+              document.getElementById("Indicator_20").style.display = "none";
+              document.getElementById("Indicator_21").style.display = "none";
+        
+          });
+          document.getElementById("Radio_20").addEventListener("change", function() {
+              document.getElementById("Indicator_17").style.display = "none";
+              document.getElementById("Indicator_18").style.display = "none";
+              document.getElementById("Indicator_19").style.display = "none";
+              document.getElementById("Indicator_20").style.display = "block";
+              document.getElementById("Indicator_21").style.display = "none";
+          });
+          document.getElementById("Radio_21").addEventListener("change", function() {
+              document.getElementById("Indicator_17").style.display = "none";
+              document.getElementById("Indicator_18").style.display = "none";
+              document.getElementById("Indicator_19").style.display = "none";
+              document.getElementById("Indicator_20").style.display = "none";
+              document.getElementById("Indicator_21").style.display = "block";
+          });
+
+      </script>
+
+</div>
+</div>   
+<div style="display: flex; justify-content: center; align-items: center;">
+    <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND" style="background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); width: 50%; display: flex; justify-content: center; align-items: center;">
+        <div class="alt-send-button">
+            <i class="fa fa-paper-plane">Find a Program</i>
+            <span class="send-text">Find a Program</span>
+        </div>
+    </button>
+</div>
+
+      </div>
+    </form>
+</div>
+  <!-- Left contact page --> 
+    
+      
+  </div>
+</div>
+ </div>
+  </section>
+<section class="about_section">
+    <div class="accordion"style="items-align: center;">
+        <div class="accordion-header"  style="display: flex; justify-content: center; width: 70%;"><span style="font-weight: bold; font-size: 25px; width: 70%;">Create a program</span></div>
+        <div class="accordion-content">
+
+
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <form class="workoutform" role="form" name="form1" id="form1" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+   
+    {% csrf_token %}
+    <div id="upperdiv" class="upperdiv">
+        
+  
+        <div style="width: 100%; display: grid; grid-row-gap: 20px; grid-column-gap: 20px; grid-template-columns: column; padding: 10px;">
+            
+    <div>
+ 
+    <select name="form2_days" id="selectdays" style="border 1px solid black; height: 150%; width: 100%; border-radius: 10px;">
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <!-- Add more options as needed -->
+    </select>
+</div>
+<div>
+    <select name="form2_levels" id="selectlevels" style="border 1px solid black; height: 150%; width: 100%; border-radius: 10px;">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermidiate">Intermidiate</option>
+        <option value="Advance">Advance</option>
+        <!-- Add more options as needed -->
+    </select>
+</div>
+<div>
+    <select name="form2_concentration" id="selectfocus" style="border 1px solid black; height: 150%; width: 100%; border-radius: 10px;">
+        <option value="Legs"> Legs</option>
+        <option value="Chest">Chest</option>
+        <option value="Shoulder">Shoulder</option>
+        <option value="Back"> Back</option>
+        <option value="Arms">Arms</option>
+        <option value="Equal">Equal</option>
+        <!-- Add more options as needed -->
+    </select>
+</div>
+    <div>
+    <select name="form2_goals" id="selectgoals" style="border 1px solid black; height: 150%; width: 100%; border-radius: 10px;">
+        <option value="Bodybuilding">Bodybuilding</option>
+        <option value="Fitness">Fitness</option>
+        <option value="Weightloss">Weightloss</option>
+        <option value="General">General</option>
+        <!-- Add more options as needed -->
+    </select>
+</div>
+    <div>
+    <input type="text" name="form2_ProgramName" id="selectgoals" placeholder="Program name" style="border 1px solid black; height: 150%; width: 100%; border-radius: 10px;">
+</div>
+</div>
+    <!-- Button to add new input field -->
+  <div style="display: flex; flex-direction: column; width: 100%;">
+    <!-- Submit button -->
+    <div style="display: flex; justify-content: center; align-items: center;">
+    <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND" style="background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); display: flex; align-items: center;">
+        <div class="alt-send-button">
+            <i class="fa fa-paper-plane">Publish Your Workout</i><span class="send-text">Publish Your Workout</span>
+        </div>
+    </button>
+    </div>
+   
+    <div style="display: flex; justify-content: center; align-items: center;">
+ 
+
+    <button class="btn btn-primary send-button" style="background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); display: flex; align-items: center;" type="button" onclick="addSection()">
+        <div class="alt-send-button">
+            <i class="fa fa-paper-plane">Add a Day</i><span class="send-text">Add a Day</span>
+        </div>
+        </button>
+</div>
+</div>
+</div>
+</form>
+    </div>
+</div>
+</div>
+
+
+<script>
+  var sectionCounter = 0;
+  
+
+function addSection() {
+  // Create new section
+  sectionCounter++;
+  var newSection = document.createElement("div");
+  newSection.className = "daydiv";
+
+  var bigDiv = document.createElement("div");
+  bigDiv.id = "bigDiv"
+  var divAddDuplicate = document.createElement("div");
+  divAddDuplicate.className = "addDuplicate";
+
+  bigDiv.style.cssText = "display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; height: 100px;";
+
+  Array.from(bigDiv.children).forEach(child => {
+  child.style.flex = "1";
+  child.style.width = "100%"; // Ensure the columns take up the full width
+});
+  var nameInputDiv = document.createElement("div");
+  nameInputDiv.style.cssText = "width: 100%; height: 100%; border: 2px solid white; border-radius: 10px;"
+  var addButtonDiv = document.createElement("div");
+  addButtonDiv.style.cssText = "width: 100%; height: 100%;";
+  var duplicateButtonDiv = document.createElement("div");
+  duplicateButtonDiv.style.cssText = "width: 100%;  height: 100%;";
+  newSection.id = "section" + sectionCounter;
+  var nameInput = document.createElement("input");
+    nameInput.className = "daynamegenericInput";
+    
+    nameInput.type = "text";
+    nameInput.name = "section" + sectionCounter + "_dayname_"; // Adjust the naming convention as needed
+    nameInput.placeholder = "Day Name";
+  // Button to add a new input within the section
+  var addButton = document.createElement("button");
+
+  addButton.style.cssText = "background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); color: white; border-radius: 5px; padding: 5px 10px;width: 100%;height: 85%;";
+
+  addButton.type = "button";
+  addButton.textContent = "Add Workout";
+  addButton.onclick = function() {
+    addInput(newSection.id);
+  };
+
+  // Button to duplicate the entire section
+  var duplicateButton = document.createElement("button");
+  duplicateButton.style.cssText = "background-color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); color: white; border-radius: 5px; padding: 5px 10px;width: 100%; height: 85%;";
+
+  duplicateButton.type = "button";
+  duplicateButton.textContent = "Duplicate Day";
+  
+  duplicateButton.onclick = function() {
+    duplicateSection(newSection.id);
+  };
+
+  // Append buttons to the new section
+  newSection.appendChild(bigDiv);
+ 
+    //newSection.appendChild(nameInputDiv);
+    bigDiv.appendChild(duplicateButtonDiv);
+   
+    bigDiv.appendChild(nameInputDiv);
+    bigDiv.appendChild(divAddDuplicate);
+    duplicateButtonDiv.appendChild(duplicateButton);
+    addButtonDiv.appendChild(addButton);
+    nameInputDiv.appendChild(nameInput);
+    divAddDuplicate.appendChild(addButtonDiv)
+    divAddDuplicate.appendChild(duplicateButtonDiv)
+  // Append the new section to the form
+  document.getElementById("form1").appendChild(newSection);
+
+  // Add the first input for the new section
+  addInput(newSection.id);
+}
+
+function duplicateSection(sectionId) {
+  // Find the section to duplicate
+  var originalSection = document.getElementById(sectionId);
+
+  // Clone the section
+  var newSection = originalSection.cloneNode(true);
+
+  // Update the ID to make it unique
+  sectionCounter++;
+  newSection.id = "section" + sectionCounter;
+
+  // Update the name attribute of the input elements in the cloned section
+  updateInputNames(newSection, sectionCounter);
+
+  // Append the duplicated section to the form
+  document.getElementById("form1").appendChild(newSection);
+}
+  function updateInputNames(section, counter) {
+  // Find all input elements within the cloned section
+  var inputs = section.querySelectorAll('input, select, textarea');
+
+  // Update the name attribute of each input element
+  inputs.forEach(function(input) {
+    var currentName = input.name;
+    var newName = currentName.replace(/section\d+/, 'section' + counter);
+    input.name = newName;
+  });
+}
+  function addInput(sectionId) {
+    // Find the section element
+    var section = document.getElementById(sectionId);
+
+    // Count the number of existing input elements in the current section
+    var formCounter = section.querySelectorAll('input, select').length / 6 + 1; // Assuming 6 types of inputs
+    var rightplusnewdiv = document.createElement("div");
+
+    rightplusnewdiv.className="commentsplusworkoutdets" 
+    var rightDiv = document.createElement("div");
+    rightDiv.className="commentDiv"
+    
+    var newDiv = document.createElement("div");
+    newDiv.className="workoutdetails" 
+
+
+    var workoutNameInputtDiv = document.createElement("div");
+    workoutNameInputtDiv.className="workoutnamegenericInputDiv";
+    var daysSelectDiv = document.createElement("div");
+    daysSelectDiv.className="genericInputDiv";
+   
+    var intensityInputDiv = document.createElement("div");
+    intensityInputDiv.className="genericInputDiv";
+   
+   
+    var setsInputDiv = document.createElement("div");
+    setsInputDiv.className="genericInputDiv";
+  
+    var repsInputDiv = document.createElement("div");
+    repsInputDiv.className="genericInputDiv";
+  
+    var urlInputDiv = document.createElement("div");
+    urlInputDiv.className="genericInputDiv";
+  
+    var commentsInputDiv = document.createElement("div");
+   
+    commentsInputDiv.style.cssText= "display: flex; align-items: center; justify-content: center; height: 100%; width: 100%; border-radius: 10px;";
+    var workoutNameInput = document.createElement("input");
+    workoutNameInput.className = "genericInput";
+    
+    workoutNameInput.type = "text";
+    workoutNameInput.name = "section" + sectionId + "_workoutname_" + formCounter;  // Change here
+    workoutNameInput.placeholder = "workoutname";
+
+    var daysSelect = document.createElement("select");
+    daysSelect.className = "genericInput";
+    daysSelect.name = "section" + sectionId + "_days_" + formCounter;  // Change here
+
+    // Add options to the dropdown
+    var options = ["Day 1", " Day 2", " Day 3", "Day 4", "Day 5"];
+    for (var i = 0; i < options.length; i++) {
+        var option = document.createElement("option");
+        option.value = options[i];
+        option.text = options[i];
+        daysSelect.appendChild(option);
+    }
+
+    var intensityInput = document.createElement("select");
+    intensityInput.className = "genericInput";
+    intensityInput.name = "section" + sectionId + "_intensity_" + formCounter;  // Change here
+
+    // Add options to the dropdown
+    options = ["30% of 1 RM", "40% of 1 RM", "50% of 1 RM", "60% of 1 RM", "70% of 1 RM", "80% of 1 RM", "90% of 1 RM", "100% of 1 RM"];
+    for (var i = 0; i < options.length; i++) {
+        var option = document.createElement("option");
+        option.value = options[i];
+        option.text = options[i];
+        intensityInput.appendChild(option);
+    }
+
+    
+    var setsInput = document.createElement("input");
+    setsInput.className = "genericInput";
+    setsInput.type = "text";
+    setsInput.name = "section" + sectionId + "_sets_" + formCounter;  // Change here
+    setsInput.placeholder = "sets";
+
+    var repsInput = document.createElement("input");
+    repsInput.className = "genericInput";
+    
+    repsInput.type = "text";
+    repsInput.name = "section" + sectionId + "_reps_" + formCounter;  // Change here
+    repsInput.placeholder = "reps";
+
+    var urlInput = document.createElement("input");
+    urlInput.className = "genericInput";
+    urlInput.type = "text";
+    urlInput.name = "section" + sectionId + "_url_" + formCounter;  // Change here
+    urlInput.placeholder = "url";
+    var commentsInput = document.createElement("textarea");
+    commentsInput.style.cssText = "width: 100%; height: 100%; border-radius: 10px;";
+    commentsInput.type = "text";
+    commentsInput.name = "section" + sectionId + "_comments_" + formCounter;  // Change here
+    commentsInput.placeholder = "comments";
+    // Append the new input elements to the form
+    workoutNameInputtDiv.appendChild(workoutNameInput);
+    daysSelectDiv.appendChild(daysSelect);
+    intensityInputDiv.appendChild(intensityInput);
+    setsInputDiv.appendChild(setsInput);
+    repsInputDiv.appendChild(repsInput);
+    urlInputDiv.appendChild(urlInput);
+    commentsInputDiv.appendChild(commentsInput);
+    // Append the new input section to the specified section
+    
+    section.appendChild(rightplusnewdiv);
+    rightplusnewdiv.appendChild(newDiv);
+    rightplusnewdiv.appendChild(rightDiv);
+    newDiv.appendChild(workoutNameInputtDiv);
+    newDiv.appendChild(daysSelectDiv);
+    newDiv.appendChild(intensityInputDiv);
+    newDiv.appendChild(setsInputDiv);
+    newDiv.appendChild(repsInputDiv);
+    newDiv.appendChild(urlInputDiv);
+   
+    rightDiv.appendChild(commentsInputDiv);
+}
+
+</script>
+
+
+</section>
+
+  <section class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a>David Ponce/a>
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+  <script>
+    // JavaScript to handle accordion functionality
+    $(document).ready(function () {
+        // Initially hide all accordion content
+        $(".accordion-content").hide();
+
+        // Handle click on accordion header
+        $(".accordion-header").click(function () {
+            // Toggle the visibility of the content within the clicked section
+            $(this).next(".accordion-content").slideToggle();
+            
+            // Collapse other sections (optional, remove if not needed)
+            $(".accordion-content").not($(this).next()).slideUp();
+        });
+    });
+</script>
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+ 
+</body>
+
+</html>
+

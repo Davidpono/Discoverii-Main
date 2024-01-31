@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        {% load static %}
+        <header id="header" class="alt">
+            <title>Cell-gazer by Group 2</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'res/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'res/css/noscript.css' %}" /></noscript>
+            <a href="{% url 'Cellgazer:cell_view' %}" class="logo"><strong>Cellgazer</strong> <span>by Group 2</span></a>
+            <nav>
+                
+            </nav>
+        </header>
+            <meta charset="utf-8">
+            <title>Conference Paper</title>
+            <style>
+                  body {
+            background-color: rgb(101, 182, 200); /* Change this to the desired background color */
+            margin: 0; /* Reset default margin */
+            padding: 0; /* Reset default padding */
+        }
+                .container{padding: 30px;
+                    margin-top: 20px;}
+            </style>
+    </head>
+    <body>
+        <div class="container">
+            <embed src="{% static 'pdf/8-Page Conference Paper.pdf' %}" type="application/pdf" width="100%" height="900px" />
+        </div>
+    </body>
+</html>

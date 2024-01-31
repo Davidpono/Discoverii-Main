@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+	{% load static %}
+	<head>
+		<title>Cell-gazer by Group 2</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'res/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'res/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="{% url 'Cellgazer:cell_view' %}" class="logo"><strong>Cellgazer</strong> <span>by Group 2</span></a>
+						<nav>
+							
+						</nav>
+					</header>
+					
+				<!-- Menu -->
+					
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<header class="major">
+								<h1>Welcome, To Cellgazer</h1>
+							</header>
+							<div class="content">
+								<p>CellGazer represents an advanced fusion of hardware innovation and digital functionality, delivering a sophisticated portable microscope experience. Its core components, including a Raspberry Pi for control, SPI-controlled motors and LEDs, a custom-designed PCB, a Flask server, and a React app with integrated image editing, work in harmony to redefine microscopy. By capturing high-resolution cellular images and enabling direct image editing and saving within the application, CellGazer introduces a new level of convenience and versatility to microscopy.
+
+									At the heart of CellGazer lies the Raspberry Pi, orchestrating seamless communication between the React app, image editing libraries, and hardware components. The SPI-controlled motors and LEDs guarantee precision in focus, zoom, and lighting adjustments, enhancing the quality of captured images. The custom-designed PCB and the Flask server facilitate real-time synchronization, while the React app's intuitive interface not only controls the microscope but also offers a suite of powerful image editing tools. With CellGazer, the power to explore, edit, and analyze cellular images is united in a single, accessible platform.<br />
+								and released under the Creative Commons.</p>
+								
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one" class="tiles">
+								<article class="clickable-article" onclick="window.location.href='{% url 'Cellgazer:conf_view' %}'">
+									<span class="image">
+										<img src="{% static 'res/img/pic01.jpg' %}" alt="" />
+									</span>
+									<header class="major">
+										<h3>Conference Paper</h3>
+										
+									</header>
+								</article>
+								<article class="clickable-article" onclick="window.location.href='{% url 'Cellgazer:ldemo_view' %}'">
+									<span class="image">
+										<img src="{% static 'res/img/pic02.jpg' %}" alt="" />
+									</span>
+									<header class="major">
+										<h3>Live Demo</h3>
+										
+									</header>
+								</article>
+								<article class="clickable-article" onclick="window.location.href='{% url 'Cellgazer:lpre_view' %}'">
+									<span class="image">
+										<img src="{% static 'res/img/pic03.jpg' %}" alt="" />
+									</span>
+									<header class="major">
+										<h3>Live Presentation</h3>
+										
+									</header>
+								</article>
+								<article class="clickable-article" onclick="window.location.href='{% url 'Cellgazer:mpaper_view' %}'">
+									<span class="image">
+										<img src="{% static 'res/img/pic04.jpg' %}" alt="" />
+									</span>
+									<header class="major">
+										<h3>Main Paper</h3>
+										
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="{% static 'res/img/pic05.jpg' %}" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Samples</a></h3>
+										
+									</header>
+								</article>
+								<article class="clickable-article" onclick="window.location.href='https://github.com/Davidpono/Capstone-Project-Portable-Microscope'">
+									<span class="image">
+										<img src="{% static 'res/img/pic06.jpg' %}" alt="" />
+									</span>
+									<header class="major">
+										<h3>Github</h3>
+										
+									</header>
+								</article>
+							</section>
+
+						<!-- Two -->
+							
+
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+				
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="#">davidadanponce@outlook.com</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-phone"></span>
+										<h3>Phone</h3>
+										<span>(407)219-6580</span>
+									</div>
+								</section>
+								
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Celgazer</li><li>Design: David Ponce</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrolly.min.js' % }"></script>
+			<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>

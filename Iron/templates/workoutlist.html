@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'res/img/fevicon.png' %}" type="">
+
+  <link rel="stylesheet"href="{% static 'res/css/formforweigh.css' %}">
+  
+  <title> Iron- By David Ponce </title>
+
+
+  <!-- bootstrap core css -->
+  
+  <link href="{% static 'res/css/bootstrap.css' %}" rel="stylesheet">
+
+
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'res/css/font-awesome.min.css' %}" rel="stylesheet" />
+  
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'res/css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'res/css/responsive2.css' %}" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    .body {
+      background-color: #F4EFDB;
+      display: flex;
+     
+  align-items: center;
+  
+  flex-direction: column;
+
+    }
+    .header_section {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+     height: 200px;
+      background-color: black;
+      padding-bottom: 10px;
+      border-radius: 10px;
+    }
+ 
+  
+    .column {
+   
+     
+      height: 400px;
+      width: 400px;
+      background-color: #445067;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .column:hover {
+   
+     
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+ }
+    .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(autofill, minmax(100px, 1fr));
+    row-gap: 5px; /* Adjust the gap between rows */
+    column-gap: 5px; /* Adjust the gap between columns */
+    padding-top: 10px;
+    
+    
+  }
+  @media (max-width: 450px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(autofill, minmax(100px, 1fr));
+    row-gap: 5px; /* Adjust the gap between rows */
+    column-gap: 5px; /* Adjust the gap between columns */
+    padding-top: 10px;
+  }
+  .column {
+   
+     
+   height: 350px;
+   width: 350px;
+   background-color: #445067;
+   border-radius: 10px;
+   transition: transform 0.3s, box-shadow 0.3s;
+ }
+}
+
+  .DivOfWorkouts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  </style>
+</head>
+
+<body class="body">
+  <section class="header_section">
+    <div >
+    <h1 style="color: azure;">List of Workouts</h1>
+    </div>
+  </section>
+    <div class="DivOfWorkouts">
+
+
+        <div class="grid-container">
+            {% for workout in response_json.Workouts %}
+            <a href="{% url 'Iron:actualworkout' section_param=workout.id %}">
+              <div  class="column" style="background-image: url({{workout.ThumbnailURL}}); background-size: cover">
+              
+                    <span style="color: white; font-weight: bold; font-size: 25px">Workout Name:{{ workout.Name }}  </span> 
+                    <br/>
+                 <span style="color: white;">
+                    <span>Workout Focus:</span> {{ workout.Concentration }}  
+                    <br/>
+                  
+                    <span>Workout Level:</span> {{ workout.Levels }}  
+                    <br/>
+                  
+           
+              <br/>
+            </span>
+        </div>
+      </a>
+            {% endfor %}
+        </div>
+
+
+        
+    </div>
+</body>
+
+
+
+</html>
+

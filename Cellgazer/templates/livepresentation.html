@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <header id="header" class="alt">
+        <title>Cell-gazer by Group 2</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'res/css/main.css' %}" />
+    <noscript><link rel="stylesheet" href="{% static 'res/css/noscript.css' %}" /></noscript>
+        <a href="{% url 'Cellgazer:cell_view' %}" class="logo"><strong>Cellgazer</strong> <span>by Group 2</span></a>
+        <nav>
+            
+        </nav>
+    </header>
+    <meta charset="utf-8">
+    
+    <title>Autoplay YouTube Video Example</title>
+    <style>
+        body {
+            background-color: rgba(244, 128, 120, 0.68);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .video-container {
+            text-align: center;
+        }
+    </style>
+    
+</head>
+
+<body>
+    
+    <iframe width="1000" height="500" src="https://www.youtube.com/embed/iFMiWDTlLDY?autoplay=1" frameborder="0" allowfullscreen></iframe>
+</body>
+</html>

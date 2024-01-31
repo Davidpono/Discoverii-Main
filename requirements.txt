@@ -1,0 +1,13 @@
+
+django
+django-crispy-forms
+whitenoise
+django-cors-headers
+openai>=1.0.0
+python-dotenv
+pandas
+pymongo
+djangorestframework
+requests
+django
+corsheaders

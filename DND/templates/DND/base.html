@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>hi</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=MedievalSharp&display=swap">
+    
+        <title>Who said dungeuns were scaryy?</title>
+        <style>
+           
+    body {
+        background-image: url("{% static 'res/img/castle_presentation-1.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      
+    }
+    .text-center{
+	color:#fff;	
+	text-transform:uppercase;
+    font-size: 23px;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
+   
+}
+
+.box {
+    background-color: rgba(40, 39, 39, 0.89);
+    border-radius: 3px;
+    padding: 20px 40px; /* Smaller padding */
+    width: 600px; /* Adjust the width as needed */
+    height: 350px; 
+    margin: 0 auto; /* Center horizontally by setting left and right margins to auto */
+   
+}
+.box2 {
+    background-color: rgba(40, 39, 39, 0.89);
+    border-radius: 3px;
+    padding: 20px 40px; /* Smaller padding */
+    width: 800px; /* Adjust the width as needed */
+    height: 700px; 
+    margin: 0 auto; /* Center horizontally by setting left and right margins to auto */
+    
+}
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+    
+}
+.input-container2 {
+    position: relative;
+    margin-bottom: 25px;
+    width: 400px; /* Increase the width */
+    height: 250px; /* Increase the height */
+    overflow: auto;
+    
+}
+
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:#fff;	
+    pointer-event:none;
+	transition: all 0.5s ease-in-out;
+    font-family: 'MedievalSharp', cursive;
+}
+.input-container input{ 
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:#fff;
+  font-family: 'MedievalSharp', cursive;
+}
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid #000000;	
+ font-family: 'MedievalSharp', cursive;
+}
+.btn{
+	color:#fff;
+	background-color:#ffffff;
+	outline: none;
+    border: 0;
+    color: rgb(0, 0, 0);
+	padding:5px 50px;
+	text-transform:uppercase;
+	margin-top:0px;
+	border-radius:2px;
+	cursor:pointer;
+	position:relative;
+    font-family: 'MedievalSharp', cursive;
+}
+/*.btn:after{
+	content:"";
+	position:absolute;
+	background:rgba(0,0,0,0.50);
+	top:0;
+	right:0;
+	width:100%;
+	height:100%;
+}*/
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+	top:-12px;
+	font-size:12px;
+	
+}
+@media (max-width: 390px) {
+            /* Apply styles only when the screen width is less than or equal to 767px (mobile) */
+            .box {
+                padding: 10px;
+                background-color: rgba(40, 39, 39, 0.89);
+    border-radius: 3px;
+   
+    width: 370px; /* Adjust the width as needed */
+    height: 350px; 
+    margin: 0 center; /* Center horizontally by setting left and right margins to auto */
+    font-family: 'MedievalSharp', cursive;
+            }
+            .box2 {
+                padding: 10px;
+                background-color: rgba(40, 39, 39, 0.89);
+    border-radius: 3px;
+   
+    width: 370px; /* Adjust the width as needed */
+    height: 900px; 
+    margin: 0 center; /* Center horizontally by setting left and right margins to auto */
+    font-family: 'MedievalSharp', cursive;
+            }
+
+            .input-container input,
+            .input-container label {
+                font-size: 12px;
+            }
+
+            .btn {
+                padding: 3px 10px;
+                font-size: 12px;
+            }
+        }
+
+        </style>
+    </head>
+    <body>
+        <h1></h1>
+        
+        <div class="container mt-3">
+            <!-- block content -->
+        
+            <!-- Check for response and object -->
+            {% if response and object %}
+            <div class="box2">
+                <span style="color: white;"><strong>{{ object.phrase }}</strong> </span>
+            <div class="row" >
+                <div class="col-md-6" style="font-family: 'MedievalSharp', cursive; color: white;">
+                    {{response|safe}}
+                </div>
+                
+                <div class="col-md-6">
+                    <!-- object content -->
+                
+                <img src="{{ object.ai_image.url }}" alt="{{ object.phrase }}" style="width: 375px; height: auto;">
+
+                </div>
+            </div>
+            <li><a href="{% url 'DND:dnd_view' %}"><button class="btn">New Persoona</button></a></li>
+        </div>
+        
+            {% endif %}
+        </div>
+        
+        
+          
+        {% if not response %}
+            <div class="box">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="container">
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-container">
+                                    <input type="text" required="" name="Name"/>
+                                    <label>Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-container">
+                                    <input type="mail" required="" name="Pronoun"/>
+                                    <label>Pronoun</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-container">
+                                    <input type="mail" required="" name="Age"/>
+                                    <label>Age</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-container">
+                                    <input type="mail" required="" name="Species"/>
+                                    <label>Species eg. Human, Orc</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-container">
+                                    <input type="mail" required="" name="Class"/>
+                                    <label>Class</label>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                  
+                    <div class="col-md-6">
+                        <div class="input-container">
+                            <input type="mail" required="" name="details"/>
+                            <label>Other details</label>
+                        </div>
+                    </div>
+       
+
+
+                    <button type="submit"  class="btn">submit</button>
+                </form>
+                
+
+
+</div>
+{% endif %}
+
+       
+    </body>
+</html>
