@@ -3,6 +3,8 @@ from pymongo.server_api import ServerApi
 from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from bson import ObjectId  # Import ObjectId from bson module
+
 import random
 
 class UserAPIView(APIView):
@@ -12,6 +14,8 @@ class UserAPIView(APIView):
             return self.register_user(request)
         elif request.path.endswith('login/'):
             return self.login_user(request)
+        elif request.path.endswith('user/'):
+            return self.user_user(request)
         else:
             return Response({"message": "Invalid endpoint"}, status=404)
 
@@ -46,8 +50,8 @@ class UserAPIView(APIView):
 
         uri = "mongodb+srv://admin:root@cluster0.96vux8g.mongodb.net/?retryWrites=true&w=majority"
         client = MongoClient(uri, server_api=ServerApi('1'))
-        db = client["Users"]
-        collection = db["Users"]
+        db = client["Iron"]
+        collection = db["User"]
 
         query = {
             "email": email,
@@ -58,11 +62,39 @@ class UserAPIView(APIView):
             user = collection.find_one(query)
 
             if user:
+                user_id = str(user.get('_id'))  # Get the user ID
                 print("Login successful. User data:", user)
-                return Response({"message": "Login successful"})
+                return Response({"message": "Login successful", "user_id": user_id})
             else:
                 print("Login failed. User not found.")
                 return Response({"message": "Login failed. User not found"}, status=401)
+        except Exception as e:
+            print("An error occurred:", e)
+            return Response({"message": "Internal Server Error"}, status=500)
+    def user_user(self, request):
+        user_id = request.data.get('user_id')  # Assuming you're passing the user's ObjectId as 'user_id'
+
+        uri = "mongodb+srv://admin:root@cluster0.96vux8g.mongodb.net/?retryWrites=true&w=majority"
+        client = MongoClient(uri, server_api=ServerApi('1'))
+        db = client["Iron"]
+        collection = db["User"]
+
+        query = {
+            "_id": ObjectId(user_id),  # Convert user_id to ObjectId
+        }
+
+        try:
+            user = collection.find_one(query)
+
+            if user:
+                # Convert ObjectId to string before sending the response
+                user['_id'] = str(user['_id'])
+                # Remove the password field before sending the response
+                user.pop('password', None)
+                return Response({"message": "User data retrieved successfully", "user": user})
+            else:
+                print("User not found.")
+                return Response({"message": "User not found"}, status=404)
         except Exception as e:
             print("An error occurred:", e)
             return Response({"message": "Internal Server Error"}, status=500)

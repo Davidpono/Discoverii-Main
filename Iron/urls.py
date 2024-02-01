@@ -21,5 +21,7 @@ urlpatterns = [
     path('api/workouts/', WorkoutAPIView.as_view(), name='workout_api'),
     path('api/login/', UserAPIView.as_view(), name='register_api'),
     path('api/register/', UserAPIView.as_view(), name='login_api'),
+    path('api/user/', UserAPIView.as_view(), name='user_api'),
+ 
     # Other URL patterns for the DND app...
 ]
