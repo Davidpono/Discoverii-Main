@@ -16,6 +16,10 @@ class UserAPIView(APIView):
             return self.login_user(request)
         elif request.path.endswith('user/'):
             return self.user_user(request)
+        elif request.path.endswith('userworkouts/'):
+            return self.userworkouts_user(request)
+        elif request.path.endswith('updatebasic/'):
+            return self.updatebasic_user(request)
         else:
             return Response({"message": "Invalid endpoint"}, status=404)
 
@@ -94,6 +98,86 @@ class UserAPIView(APIView):
                 return Response({"message": "User data retrieved successfully", "user": user})
             else:
                 print("User not found.")
+                return Response({"message": "User not found"}, status=404)
+        except Exception as e:
+            print("An error occurred:", e)
+            return Response({"message": "Internal Server Error"}, status=500)
+    def userworkouts_user(self, request):
+        user_id = request.data.get('user_id')
+        workout_id = request.data.get('id')
+        workout_name = request.data.get('name')
+
+        uri = "mongodb+srv://admin:root@cluster0.96vux8g.mongodb.net/?retryWrites=true&w=majority"
+        client = MongoClient(uri, server_api=ServerApi('1'))
+        db = client["Iron"]
+        collection = db["User"]
+
+        query = {
+            "_id": ObjectId(user_id),
+        }
+
+        try:
+            user = collection.find_one(query)
+
+            if user:
+                # If 'workouts' already exists, update it, otherwise add it
+                if 'workouts' in user:
+                    # Append new workout data to the existing workouts array
+                    user['workouts'].append({"id": workout_id, "name": workout_name})
+                else:
+                    # Create a new 'workouts' field with the provided workout data
+                    user['workouts'] = [{"id": workout_id, "name": workout_name}]
+
+                # Update the user document in the database
+                collection.update_one({'_id': ObjectId(user_id)}, {'$set': {'workouts': user['workouts']}})
+                
+                return Response({"message": "Workout added successfully"})
+            else:
+                print("User not found.")
+                return Response({"message": "User not found"}, status=404)
+        except Exception as e:
+            print("An error occurred:", e)
+            return Response({"message": "Internal Server Error"}, status=500)
+    def updatebasic_user(self, request):
+        user_id = request.data.get('user_id')
+        username = request.data.get('username')
+        lastname = request.data.get('lastname')
+        firstname = request.data.get('firstname')
+        age = request.data.get('age')
+        email = request.data.get('email')
+        uri = "mongodb+srv://admin:root@cluster0.96vux8g.mongodb.net/?retryWrites=true&w=majority"
+        client = MongoClient(uri, server_api=ServerApi('1'))
+        db = client["Iron"]
+        collection = db["User"]
+
+        query = {"_id": ObjectId(user_id)}
+        print(user_id,username,lastname,firstname,age,email)
+        try:
+            existing_user = collection.find_one(query)
+
+            if existing_user:
+                # Prepare update data
+                update_data = {}
+
+                # Update only non-null fields
+                if email is not None:
+                    update_data["email"] = email
+                if username is not None:
+                    update_data["username"] = username
+                if lastname is not None:
+                    update_data["lastname"] = lastname
+                if firstname is not None:
+                    update_data["firstname"] = firstname
+                if age is not None:
+                    update_data["age"] = age
+
+                # Update the existing user data
+                if update_data:
+                    collection.update_one(query, {"$set": update_data})
+                    return Response({"message": "User data updated successfully"})
+                else:
+                    return Response({"message": "No data provided for update"}, status=400)
+            else:
                 return Response({"message": "User not found"}, status=404)
         except Exception as e:
             print("An error occurred:", e)
