@@ -121,6 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Add the origins that should be allowed
         "https://discoveri.azurewebsites.net",
+        "https://iron-five.vercel.app",
 ]
 
 CORS_ALLOW_HEADERS = [
