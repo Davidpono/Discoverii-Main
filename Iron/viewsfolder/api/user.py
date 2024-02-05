@@ -145,6 +145,7 @@ class UserAPIView(APIView):
         firstname = request.data.get('firstname')
         age = request.data.get('age')
         email = request.data.get('email')
+        activeworkout = request.data.get('activeworkout')
         uri = "mongodb+srv://admin:root@cluster0.96vux8g.mongodb.net/?retryWrites=true&w=majority"
         client = MongoClient(uri, server_api=ServerApi('1'))
         db = client["Iron"]
@@ -170,7 +171,8 @@ class UserAPIView(APIView):
                     update_data["firstname"] = firstname
                 if age is not None:
                     update_data["age"] = age
-
+                if activeworkout is not None:
+                    update_data["activeworkout"] = activeworkout
                 # Update the existing user data
                 if update_data:
                     collection.update_one(query, {"$set": update_data})
