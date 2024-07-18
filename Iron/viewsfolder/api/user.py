@@ -146,9 +146,9 @@ class UserAPIView(APIView):
         firstname = request.data.get('firstname')
         age = request.data.get('age')
         email = request.data.get('email')
-        activeworkout = request.data.get('restdayMonday')
+        activeworkout = request.data.get('activeworkout')
         restdaylist = request.data.get('restdaylist')
-
+        
         uri = "mongodb+srv://admin:root@cluster0.96vux8g.mongodb.net/?retryWrites=true&w=majority"
         client = MongoClient(uri, server_api=ServerApi('1'))
         db = client["Iron"]
@@ -156,7 +156,7 @@ class UserAPIView(APIView):
 
         query = {"_id": ObjectId(user_id)}
     
-        print(restdaylist)
+        
         try:
             existing_user = collection.find_one(query)
 
