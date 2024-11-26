@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['discoveri.azurewebsites.net', "*"]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://discoveri.azurewebsites.net",
+    "https://discoverii-main.onrender.com",
     # Add any other trusted origins here
 ]
 
