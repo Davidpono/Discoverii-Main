@@ -11,3 +11,5 @@ djangorestframework
 requests
 django
 django-cors-headers
+gunicorn
+Pillow
