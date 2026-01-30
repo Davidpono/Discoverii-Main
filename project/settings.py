@@ -63,12 +63,15 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # should be before CommonMiddleware
     'django.middleware.common.CommonMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Visitor logging middleware (replace 'relecloud' with your app name)
+    'relecloud.middleware.VisitorLogMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -158,3 +161,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Access the OpenAI API key
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'  # literally the word 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'visitorlog111@outlook.com'
