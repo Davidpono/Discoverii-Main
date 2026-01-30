@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>My Mind - by Dave</title>
+
+    <link href="{% static 'res/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'res/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'res/css/templatemo-cyborg-gaming.css' %}">
+    <link rel="stylesheet" href="{% static 'res/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'res/css/animate.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+
+
+
+<style>
+  
+.card {
+  width: 190px;
+  height: 254px;
+  background: rgb(156, 151, 56);
+  transition: all 0.4s;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.card:hover {
+  border-radius: 15px;
+  cursor: pointer;
+  transform: scale(1.2);
+  box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+  background: rgb(112, 120, 137);
+}
+
+
+.first-content {
+  height: 100%;
+  width: 100%;
+  transition: all 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  border-radius: 15px;
+}
+
+.card:hover .first-content {
+  height: 0px;
+  opacity: 0;
+}
+
+.second-content {
+  height: 0%;
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  transition: all 0.4s;
+  font-size: 0px;
+  transform: rotate(90deg) scale(-1);
+}
+
+.card:hover .second-content {
+  opacity: 1;
+  height: 100%;
+  font-size: 1.8rem;
+  transform: rotate(0deg);
+}
+
+
+
+.card2 {
+  width: 190px;
+  height: 254px;
+  background: rgb(95, 96, 96);
+  transition: all 0.4s;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.card2:hover {
+  border-radius: 15px;
+  cursor: pointer;
+  transform: scale(1.2);
+  box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+  background: rgb(38, 39, 41);
+}
+
+
+.first2-content2 {
+  height: 100%;
+  width: 100%;
+  transition: all 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  border-radius: 15px;
+}
+
+.card2:hover .first2-content2 {
+  height: 0px;
+  opacity: 0;
+}
+
+.second2-content2 {
+  height: 0%;
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  transition: all 0.4s;
+  font-size: 0px;
+  transform: rotate(90deg) scale(-1);
+}
+
+.card2:hover .second2-content2 {
+  opacity: 1;
+  height: 100%;
+  font-size: 1.8rem;
+  transform: rotate(0deg);
+}
+
+
+
+</style>
+  </head>
+  <!-- ***** Preloader Start ***** -->
+ 
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a  class="logo">
+                    <img src="{% static 'res/img/d-high-resolution-logo-color-on-transparent-background.png' %}" alt=""> 
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Search End ***** -->
+                 
+                    <!-- ***** Search End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-content">
+                <!-- ***** Banner Start ***** -->
+                <div class="main-banner">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="header-text">
+                                <h6>Welcome to my humble abode.</h6>
+                                <h4><em></em> How does ones mind work?</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="row">
+                                <div class="card-container">
+                                    <div class="card">
+                                        <div class="first-content">
+                                            <span><br>Recruiters,</br>Click Me</br></span>
+                                        </div>
+                                        <div class="second-content">
+                                            <span> <li><a href="{% url 'about_me:about' %}">Resume</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="heading-section">
+                        <h4><em>Projects</em></h4>
+                    </div>
+                </div>
+                <div class="most-popular">
+                  <div class="container">
+                      <div class="row justify-content-center">
+                          <div class="col-lg-3 col-sm-6">
+                              <div class="card2-container2">
+                                  <div class="card2">
+                                      <div class="first2-content2">
+                                          <div class="item">
+                                              <img src="{% static 'res/img/fgfgf.jpg' %}" alt="">
+                                              <h4>QuestForge<br><span> Powered by OpenAI</span></h4>
+                                              <ul>
+                                              </ul>
+                                              <span><strong style="font-size: 10px;">Your D&D Persona</strong></span>
+                                          </div>
+                                      </div>
+                                      <div class="second2-content2"
+                                          style="background-image: url('{% static 'res/img/wp4110712.jpg' %}');
+                                                background-size: cover;
+                                                background-position: center center;">
+                                          <span><li><a href="{% url 'DND:dnd_view' %}">Get started</a></li></span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+              
+                          <div class="col-lg-3 col-sm-6">
+                              <div class="card2-container2">
+                                  <div class="card2">
+                                      <div class="first2-content2">
+                                          <div class="item">
+                                              <img src="{% static 'res/img/hgh.jpg' %}" alt="">
+                                              <h4>Iron<br><span>Fitness</span></h4>
+                                              <ul>
+                                              </ul>
+                                              <span><strong style="font-size: 10px;">Train Hard.</strong></span>
+                                          </div>
+                                      </div>
+                                      <div class="second2-content2"
+                                          style="background-image: url('{% static 'res/img/maxresdefault.jpg' %}');
+                                                background-size: cover;
+                                                background-position: center center;">
+                                          <span><li><a href="https://iron-five.vercel.app/">Get Started!</a></li></span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+              
+                          <div class="col-lg-3 col-sm-6">
+                              <div class="card2-container2">
+                                  <div class="card2">
+                                      <div class="first2-content2">
+                                          <div class="item">
+                                              <img
+                                                  src="{% static 'res/img/microscope-slide-stains-science-teaching-tip-thumbnail_195x150.jpg' %}"
+                                                  alt="">
+                                              <h4>Cell-Gazer<br><span>Software/PCB/Optical</span></h4>
+                                              <ul>
+                                              </ul>
+                                              <span><strong style="font-size: 10px;">Unveiling the Unseen World.</strong></span>
+                                          </div>
+                                      </div>
+                                      <div class="second2-content2"
+                                          style="background-image: url('{% static 'res/img/asd.jpg' %}');
+                                                background-size: cover;
+                                                background-position: center center;">
+                                          <span><a href="{% url 'Cellgazer:cell_view' %}">Take a Peek!</a></span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+                <div class="gaming-library">
+                    <div class="col-lg-12">
+                        <div class="heading-section">
+                            <h4><em>LINKS</em></h4>
+                        </div>
+                        <div class="item">
+                        </div>
+                        <div class="item">
+                            <ul>
+                                <li><img src="{% static 'res/img/sssss.png' %}" alt="" class="templatemo-item">
+                                </li>
+                                <li><h4>Linked</h4><span></span></li>
+                                <li><h4>Handle</h4><span>computer-eng-david-ponce</span></li>
+                                <li>
+                                    <div class="main-border-button"><a
+                                            href="https://www.linkedin.com/in/computer-eng-david-ponce/">Go To</a></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <ul>
+                                <li><img src="{% static 'res/img/sdssas.png' %}" alt=""
+                                        class="templatemo-item">
+                                </li>
+                                <li><h4>Github</h4><span></span></li>
+                                <li><h4>Handle</h4><span>DavidPono</span></li>
+                                <li>
+                                    <div class="main-border-button"><a href="https://github.com/Davidpono">Go To</a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- ***** Gaming Library End ***** -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright © 2023 <a href="#">Discoveri</a> All rights reserved.<br>By: <a target="_blank" title="myshii">David Adan Ponce</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>
